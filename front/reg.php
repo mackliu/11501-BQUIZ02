@@ -48,7 +48,17 @@ function reg(){
     }else if(user.pw != user.pw2){
         alert("密碼錯誤");
     }else{
-        console.log('檢查帳號')
+        $.get("api/chk_acc.php",user,(res)=>{
+            //console.log(res)
+            if(parseInt(res)>0){
+                alert("帳號重複");
+            }else{
+                $.post("api/reg.php",user,()=>{
+                        alert("註冊成功，歡迎加入")
+                   location.href='?do=login'
+                })
+            }
+        })
 
     }
 }
