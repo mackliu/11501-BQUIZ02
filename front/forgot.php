@@ -14,8 +14,16 @@
         </tr>
         <tr>
             <td>
-                <button>尋找</button>
+                <button onclick="search()">尋找</button>
             </td>
         </tr>
     </table>
 </fieldset>
+<script>
+function search(){
+    let email=$("#email").val();
+    $.get("./api/forgot.php",{email},(result)=>{
+        $("#result").text(result)
+    })
+}
+</script>
