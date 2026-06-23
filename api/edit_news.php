@@ -10,4 +10,4 @@ foreach($_POST['id'] as $id){
     }
 }
 
-to("../admin.php?do=news");
+to("./admin.php?do=news");
