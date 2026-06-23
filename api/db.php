@@ -120,5 +120,20 @@ function to($url){
 
 
 $Mem=new DB('members');
+$Total=new DB('total');
 
+
+
+if(!isset($_SESSION['total'])){
+    $total=$Total->find(['date'=>date("Y-m-d")]);
+    if(!empty($total)){
+        $total['total']++;
+        $Total->save($total);
+        $_SESSION['total']=$total['total'];
+    }else{
+        $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
+        $_SESSION['total']=1;
+    }
+
+}
 

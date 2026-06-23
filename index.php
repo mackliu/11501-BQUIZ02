@@ -16,7 +16,7 @@
 <iframe name="back" style="display:none;"></iframe>
 	<div id="all">
     	<div id="title">
-        <?= date("m月 d號 l") ?> | 今日瀏覽: 1 | 累積瀏覽: 36       
+        <?= date("m月 d號 l") ?> | 今日瀏覽: <?= $Total->find(['date'=>date("Y-m-d")])['total']; ?> | 累積瀏覽: <?= $Total->q("select sum(`total`) as 'sum' from `total`")[0]['sum'] ;?>       
 		<a href="index.php" style="float:right">回首頁</a>
 	    </div>
         <div id="title2">
