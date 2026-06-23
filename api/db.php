@@ -121,7 +121,7 @@ function to($url){
 
 $Mem=new DB('members');
 $Total=new DB('total');
-
+$News=new DB('news');
 
 
 if(!isset($_SESSION['total'])){
