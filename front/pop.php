@@ -20,6 +20,7 @@
         <td style="position:relative">
             <span><?= mb_substr($post['content'],0,30); ?>...</span>
                 <div class="alerr" >
+                    <h3 style='color:lightblue'><?= $post['type'] ?></h3>
                     <pre class="ssaa"><?= nl2br($post['content']) ?></pre>
                 </div>
         </td>
@@ -53,11 +54,11 @@ echo "<a href='?do=pop&p=$next'> > </a>";
 </fieldset>
 <script>
 $(".post-title").hover(
-    function(){
+    function(){//onmouseover
         $(".alerr").hide();
         $(this).next("td").children('.alerr').show();
     },
-    function(){
+    function(){//onmouseout
         $(".alerr").hide();
     }
 )
