@@ -16,8 +16,11 @@
     foreach($posts as $post):
     ?>
     <tr>
-        <td><?= $post['title'] ?></td>
-        <td><?= mb_substr($post['content'],0,30); ?>...</td>
+        <td class="post-title"><?= $post['title'] ?></td>
+        <td>
+            <span><?= mb_substr($post['content'],0,30); ?>...</span>
+            <span style="display:none"><?= nl2br($post['content']) ?></span>
+        </td>
         <td></td>
     </tr>
     <?php
@@ -46,3 +49,9 @@ echo "<a href='?do=news&p=$next'> > </a>";
 ?>
 </div>
 </fieldset>
+
+<script>
+$(".post-title").on("click",function(){
+    $(this).next('td').children('span').toggle();
+})
+</script>
