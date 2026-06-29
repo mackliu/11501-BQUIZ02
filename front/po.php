@@ -16,6 +16,8 @@
 </fieldset>
 <fieldset style="width:550px">
     <legend>文章列表</legend>
+    <div class="post-list"></div>
+    <div class="post-content" style="display:none"></div>
     
 </fieldset>
 
@@ -24,5 +26,11 @@
 $(".type-item").on("click",function(){
     let text=$(this).text();
     $(".nav-item").text(text);
+
+    $.get("./api/get_posts.php",{text},(list)=>{
+        $(".post-list").html(list)
+        $(".post-list").show();
+        $(".post-content").hide();
+    })
 })
 </script>
