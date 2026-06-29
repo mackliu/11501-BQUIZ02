@@ -16,8 +16,13 @@
     foreach($posts as $post):
     ?>
     <tr>
-        <td><?= $post['title'] ?></td>
-        <td><?= mb_substr($post['content'],0,30); ?>...</td>
+        <td class="post-title"><?= $post['title'] ?></td>
+        <td style="position:relative">
+            <span><?= mb_substr($post['content'],0,30); ?>...</span>
+                <div class="alerr" >
+                    <pre class="ssaa"><?= nl2br($post['content']) ?></pre>
+                </div>
+        </td>
         <td></td>
     </tr>
     <?php
@@ -46,3 +51,22 @@ echo "<a href='?do=pop&p=$next'> > </a>";
 ?>
 </div>
 </fieldset>
+<script>
+$(".post-title").hover(
+    function(){
+        $(".alerr").hide();
+        $(this).next("td").children('.alerr').show();
+    },
+    function(){
+        $(".alerr").hide();
+    }
+)
+$(".alerr").hover(
+    function(){
+        $(this).show();
+    },
+    function(){
+        $(".alerr").hide();
+    }
+)
+</script>
