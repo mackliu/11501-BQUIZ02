@@ -25,6 +25,24 @@
     ?>
 </table>
 <div>
+<?php 
+if($now-1 > 0){
+$prev=$now-1;
+echo "<a href='?do=news&p=$prev'> < </a>";
 
+}
+
+for($i=1;$i<=$pages;$i++){
+    $size=($i==$now)?'24px':'18px';
+echo "<a href='?do=news&p=$i' style='font-size:$size'> $i </a>";
+}
+
+if($now+1 <= $pages){
+$next=$now+1;
+echo "<a href='?do=news&p=$next'> > </a>";
+}
+
+
+?>
 </div>
 </fieldset>
