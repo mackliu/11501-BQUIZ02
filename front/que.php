@@ -22,7 +22,7 @@
             <td class='ct'>
                 <?php 
                 if(isset($_SESSION['login'])){
-                    echo "<a href='?do=vote&{$que['id']}'>";
+                    echo "<a href='?do=vote&id={$que['id']}'>";
                     echo "參與投票";
                     echo "</a>";
                 }else{
